@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-lato: "Lato", sans-serif;
+  --font-redhatdisplay: "RedHatDisplay", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  --font-lato: "Lato", sans-serif;
+   --font-redhatdisplay: "RedHatDisplay", sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+.lato {
+  font-family: var(--font-loto);
+}
+
+.redhat {
+  font-family: var(--font-redhatdisplay);
+}
+
+.l30 {
+  line-height: 30px;
+}
+.l90 {
+  line-height: 90px;
+}
+html {
+  scroll-behavior: smooth;
+}
+.l1{
+  letter-spacing: -1%;
+}
+
+@media (min-width: 1460px) and (max-width: 1688px) {
+  .pl-custom {
+    padding-left: 180px !important;
+  }
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-marquee 8s linear infinite;
+}
+
+
+
