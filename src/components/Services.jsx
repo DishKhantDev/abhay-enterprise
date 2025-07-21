@@ -97,7 +97,7 @@ const Services = () => {
     <div className="flex gap-[16px] md:mt-[43px] mt-[24px]">
       {/* Left Arrow */}
       <div
-        className="p-[13px] rounded-full border-white border cursor-pointer hover:bg-white hover:bg-opacity-10 transition-all duration-300"
+        className="p-[13px] rounded-full border-white border cursor-pointer  hover:bg-opacity-10 transition-all duration-300"
         onClick={prevSlide}
       >
         <Image
@@ -109,7 +109,7 @@ const Services = () => {
 
       {/* Right Arrow */}
       <div
-        className="p-[13px] rounded-full border-white border cursor-pointer hover:bg-white hover:bg-opacity-10 transition-all duration-300"
+        className="p-[13px] rounded-full border-white border cursor-pointer hover:bg-opacity-10 transition-all duration-300"
         onClick={nextSlide}
       >
         <Image
