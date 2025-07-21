@@ -14,17 +14,17 @@ const Loto = localFont({
       style: "light",
     },
     {
-      path: "../assests/fonts/lato/Lato-Regular.ttf",
+      path: "../assests/fonts/Lato/Lato-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../assests/fonts/lato/Lato-Bold.ttf",
+      path: "../assests/fonts/Lato/Lato-Bold.ttf",
       weight: "700",
       style: "bold",
     },
     {
-      path: "../assests/fonts/lato/Lato-Black.ttf",
+      path: "../assests/fonts/Lato/Lato-Black.ttf",
       weight: "900",
       style: "black",
     },
