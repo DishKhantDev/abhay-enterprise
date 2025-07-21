@@ -88,20 +88,20 @@ const Navbar = () => {
               </div>
               <button
                 onClick={closeMenu}
-                className="text-6xl cursor-pointer"
+                className="text-5xl cursor-pointer"
                 aria-label="Close menu"
               >
                 ×
               </button>
             </div>
 
-            <nav className="flex flex-col text-[18px] font-bold divide-y  divide-[#DADADA]">
+            <nav className="flex flex-col text-[15px] font-bold divide-y uppercase divide-[#DADADA]">
               {[
                 ["Home", "#home"],
-                ["AboutUs", "#about"],
+                ["About Us", "#about"],
                 ["Our Clients", "#ourclients"],
                 ["Why choose us", "#Whychooseus"],
-                ["COntact Us", "#contact"],
+                ["Contact Us", "#contact"],
               ].map(([label, href]) => (
                 <Link
                   key={href}

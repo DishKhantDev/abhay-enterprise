@@ -6,6 +6,8 @@ import RedArrowRight from "@/assests/icons/red-right-arrow.svg";
 import PersonImg from "@/assests/images/profile.jpg"; // Example image
 import Rectangle from "@/assests/icons/rectangle.png";
 import Symbol from "@/assests/images/review-symbol.png";
+import LeftWhiteArrow from "@/assests/icons/left-white-arrow.svg";
+import RightWhiteArrow from "@/assests/icons/right-white-arrow.svg";
 
 const testimonials = [
   {
@@ -103,13 +105,13 @@ const Testimonials = () => {
   const ArrowControls = () => (
     <div className="flex gap-[12px] md:mt-[28px] mt-[24px]">
       <button
-        className="p-3 border-[#ED323A] border rounded-full hover:bg-[#ED323A] hover:bg-opacity-10 transition-all duration-300"
+        className="p-3 border-[#ED323A] border rounded-full cursor-pointer hover:bg-opacity-10 transition-all duration-300"
         onClick={prevSlide}
       >
         <Image src={RedArrowLeft} alt="left" className="w-[22px] h-[22px]" />
       </button>
       <button
-        className="p-3 border-[#ED323A] border rounded-full hover:bg-[#ED323A] hover:bg-opacity-10 transition-all duration-300"
+        className="p-3 border-[#ED323A] border rounded-full cursor-pointer hover:bg-opacity-10 transition-all duration-300"
         onClick={nextSlide}
       >
         <Image src={RedArrowRight} alt="right" className="w-[22px] h-[22px]" />

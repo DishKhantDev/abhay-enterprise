@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export const metadata = {
   title: "Create Next App",
@@ -81,6 +82,7 @@ export default function RootLayout({ children }) {
          antialiased`}
       >
         {children}
+          <ScrollToTop/> {/* Add at bottom */}
       </body>
     </html>
   );

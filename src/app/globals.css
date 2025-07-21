@@ -73,5 +73,34 @@ html {
   animation: scroll-marquee 8s linear infinite;
 }
 
+@keyframes blinkPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
+.blink-pulse {
+  animation: blinkPulse 0.6s ease-in-out 2; /* run 2 times */
+}
+
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scrollInfinite 15s linear infinite;
+}
+
+
 
 
