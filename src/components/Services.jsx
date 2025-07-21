@@ -178,7 +178,7 @@ function SingleImage({ image, name }) {
           className="rounded-[10px] object-cover h-[350px] sm:h-[400px] md:h-[500px] w-full md:w-[392px] transition-transform duration-300 group-hover:scale-100"
         />
         <div className="absolute bottom-[23px] left-[27px] right-[26px] h-[50px] md:h-[55px] lg:h-[60px]  2xl:h-[70px] bg-[#ED323A] rounded-[8px] flex items-center justify-center transition-all duration-300 group-hover:bg-opacity-90">
-          <h4 className="lato font-bold text-white text-[18px]  md:text-[20px] lg:text-[22px] xl:text-[24px] leading-[30px] xl:leading-[35px] 2xl:leading-[45px] capitalize text-center">
+          <h4 className="lato font-bold text-white text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] xl:text-[24px] leading-[30px] xl:leading-[35px] 2xl:leading-[45px] capitalize text-center">
             {name}
           </h4>
         </div>

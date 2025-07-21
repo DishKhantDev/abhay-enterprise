@@ -33,7 +33,7 @@ const Footer = () => {
       <div className="h-[1px] bg-[#C8C8C8]  w-full lg:w-[70%] 2xl:w-[60%] mx-auto mt-[64px] md:mt-[80px] lg:mt-[100px] 2xl:mt-[155px] mb-[40px] " />
 
       {/* Nav Links */}
-      <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-[14px] md:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] lato  font-bold uppercase  ">
+      <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-[90px] text-[14px] md:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[17px] lato font-semibold uppercase  ">
         {navLinks.map((link, index) => (
           <a key={index} href={link.href} className="hover:underline">
             {link.name}
