@@ -28,7 +28,7 @@ export const HomeMain = () => {
           Results That Speak,<br/> Recovery That Matters
         </h1>
         <h2 className="mt-[18px] text-[16px] sm:text-[17px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] font-medium redhat leading-[23px] md:leading-[30px] 2xl:leading-[40px] 2xl:w-[634px]">
-          we’re here to make every recovery count—because when<br/> it comes to  your
+          we’re here to make every recovery count—because when it comes to  your
           bottom line, results matter.
         </h2>
         <div className="mt-[18px]">
