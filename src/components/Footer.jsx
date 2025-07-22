@@ -40,7 +40,7 @@ const Footer = () => {
           </a>
         ))}
       </div>
-      <div className="h-[1.5px] w-full bg-[#C8C8C8] mt-[40px] mb-[29px] " />
+      <div className="h-[1px] w-full bg-[#C8C8C8] mt-[40px] mb-[29px] " />
 
       <div className="flex flex-col lg:flex-row justify-between mb-[29px] items-center w-full text-[14px] md:text-[15px] lg:text-[16px] lato font-normal leading-[30px] text-[#4E5566]">
         <h4>Privacy Policy  |  Terms & Conditions</h4>
