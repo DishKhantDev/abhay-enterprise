@@ -18,11 +18,11 @@ export default function Home() {
         <HomeMain />
       </section>
 
-      <section id="about">
+      <section id="about-us">
         <AboutUs />
       </section>
 
-      <section id="Whychooseus">
+      <section id="Why-choose-us">
         <WhyChooseUs />
       </section>
 
@@ -30,7 +30,7 @@ export default function Home() {
         <Services />
       {/* </section> */}
 
-      <section id="ourclients">
+      <section id="our-clients">
         <OurClients />
       </section>
 

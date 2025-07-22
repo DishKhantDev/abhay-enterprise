@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <header className="lato mx-[7%] border-b-1 border-[#FFFFFF]/60">
       {/* Main Navbar */}
-      <nav className="flex justify-between  items-center h-[100px] md:h-[140px] xl:h-[165px] relative">
+      <nav className="flex justify-between  items-center h-[100px] md:h-[140px]  relative">
         {/* Logo */}
         <div className="flex items-center gap-4">
           <Image
@@ -43,12 +43,12 @@ const Navbar = () => {
         </button>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex gap-[20px] lg:gap-[35px] 2xl:gap-[90px] text-white font-normal uppercase md:text-[14px] lg:text-[16px] l1 xl:text-[18px] items-center inter ">
+        <ul className="hidden md:flex gap-[20px] lg:gap-[35px] 2xl:gap-[90px] text-white font-bold uppercase  md:text-[14px] lg:text-[16px] l1 xl:text-[18px] items-center lato ">
           {[
             ["Home", "#home"],
-            ["AboutUs", "#about"],
-            ["Our Clients", "#ourclients"],
-            ["Why choose us", "#Whychooseus"],
+            ["About Us", "#about-us"],
+            ["Our  Clients", "#our-clients"],
+            ["Why  choose  us", "#Why-choose-us"],
           ].map(([label, href]) => (
             <li key={href} className="relative group">
               <Link
@@ -95,7 +95,7 @@ const Navbar = () => {
               </button>
             </div>
 
-            <nav className="flex flex-col text-[15px] font-bold divide-y uppercase divide-[#DADADA]">
+            <nav className="flex flex-col lato text-[15px] font-bold divide-y uppercase divide-[#DADADA]">
               {[
                 ["Home", "#home"],
                 ["About Us", "#about"],

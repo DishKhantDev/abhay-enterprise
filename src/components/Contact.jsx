@@ -70,10 +70,9 @@ const Contact = () => {
                   Address
                 </h3>
                 <p className="text-[14px] md:text-[15px] lg:text-[16px] font-medium leading-[30px] text-[#363435] redhat">
-                  Abhay Enterprise 
-                  Lorem Tower, <br /> 2nd Floor, Ipsum Nagar, Sector 45, Near Dolor{" "}
-                  <br /> Bank, Sit Amet Road, Consectetur (West), Metropolis -
-                  110011, Lorem Pradesh, India.
+                  Abhay Enterprise Lorem Tower, <br /> 2nd Floor, Ipsum Nagar,
+                  Sector 45, Near Dolor <br /> Bank, Sit Amet Road, Consectetur
+                  (West), Metropolis - 110011, Lorem Pradesh, India.
                 </p>
               </div>
             </div>
@@ -127,9 +126,14 @@ const Contact = () => {
           </h3>
           <div className="h-[1px] mt-[16px] md:mt-[22x] my-[30px] w-full bg-[#DEDEDE]"></div>
 
-          <form className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] md:gap-[25px] 2xl:gap-[30px]">
+          <form className="grid grid-cols-1 lg:grid-cols-2   gap-y-[30px] gap-x-[20px] md:gap-x-[25px] 2xl:gap-x-[30px]">
             {formFields.map((field, index) => (
-              <div key={index} className={`w-full ${field.colSpan === 2 ? 'md:col-span-2' : 'md:col-span-1'}`}>
+              <div
+                key={index}
+                className={`w-full ${
+                  field.colSpan === 2 ? "md:col-span-2" : "md:col-span-1"
+                }`}
+              >
                 <label className="lato font-semibold text-[16px] block mb-[5px] md:mb-[7px] lg:mb-[10px] capitalize">
                   {field.label}
                   <span className="text-[#ED323A]">*</span>
@@ -139,21 +143,28 @@ const Contact = () => {
                     name={field.name}
                     placeholder={field.placeholder}
                     rows={8}
-                    className="w-full border border-[#D4D4D4] bg-white rounded-[5px] h-[140px] 2xl:h-[156px] py-[20px] md:py-[22px] px-[15px] md:px-[23px] lg:px-[30px] text-[14px] resize-none placeholder-[#575757] focus:outline-none"
+                    className="w-full l1 border border-[#D4D4D4] bg-white lato placeholder:redhat rounded-[5px] h-[140px] 2xl:h-[156px] py-[20px] md:py-[22px] px-[15px] md:px-[23px] lg:px-[30px] text-[14px] resize-none placeholder-[#575757] focus:outline-none"
                   />
                 ) : (
                   <input
                     type={field.type}
                     name={field.name}
                     placeholder={field.placeholder}
-                    className="w-full border border-[#D4D4D4] bg-white rounded-[5px] h-[50px] md:h-[55px] lg:h-[60px] text-[14px] py-[20px] md:py-[22px] px-[15px] md:px-[23px] lg:px-[30px] placeholder-[#575757] focus:outline-none"
+                    className="w-full l1 border border-[#D4D4D4] bg-white rounded-[5px] lato placeholder:redhat h-[50px] md:h-[55px] lg:h-[60px] text-[14px] py-[20px] md:py-[22px] px-[15px] md:px-[23px] lg:px-[30px] placeholder-[#575757] focus:outline-none"
                   />
                 )}
               </div>
             ))}
 
-            <div className="lg:col-span-2 mt-[20px] md:mt-[25px] lg:mt-[30px] 2xl:mt-[48px]">
-              <ButtonMain text="Submit " />
+            <div className="lg:col-span-2 lg:mt-[18px] ">
+              <button
+                className="border px-[50px] text-[14px] 
+        xl:px-[70px] lg:px-[70px] lg:py-[5px] xl:py-[5px] 
+        lg:text-[16px] xl:text-[18px] font-medium cursor-pointer 
+        rounded-tr-[20px] rounded-bl-[20px] leading-[40px] text-white bg-[#ED323A] hover:bg-white border-[#ED323A] hover:border-[#ED323A] hover:text-[#ED323A] transition-all duration-300 ease-in-out"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>

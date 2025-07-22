@@ -102,22 +102,43 @@ const Testimonials = () => {
     </div>
   );
 
-  const ArrowControls = () => (
+const ArrowControls = () => {
+  const [hoverLeft, setHoverLeft] = useState(false);
+  const [hoverRight, setHoverRight] = useState(false);
+
+  return (
     <div className="flex gap-[12px] md:mt-[28px] mt-[24px]">
+      {/* Left Button */}
       <button
-        className="p-3 border-[#ED323A] border rounded-full cursor-pointer hover:bg-opacity-10 transition-all duration-300"
+        className="p-3 border-[#ED323A] hover:bg-[#ED323A] border rounded-full cursor-pointer hover:bg-opacity-10 transition-all duration-300"
         onClick={prevSlide}
+        onMouseEnter={() => setHoverLeft(true)}
+        onMouseLeave={() => setHoverLeft(false)}
       >
-        <Image src={RedArrowLeft} alt="left" className="w-[22px] h-[22px]" />
+        <Image
+          src={hoverLeft ? LeftWhiteArrow : RedArrowLeft}
+          alt="left"
+          className="w-[22px] h-[22px]"
+        />
       </button>
+
+      {/* Right Button */}
       <button
-        className="p-3 border-[#ED323A] border rounded-full cursor-pointer hover:bg-opacity-10 transition-all duration-300"
+        className="p-3 border-[#ED323A] hover:bg-[#ED323A] border rounded-full cursor-pointer hover:bg-opacity-10 transition-all duration-300"
         onClick={nextSlide}
+        onMouseEnter={() => setHoverRight(true)}
+        onMouseLeave={() => setHoverRight(false)}
       >
-        <Image src={RedArrowRight} alt="right" className="w-[22px] h-[22px]" />
+        <Image
+          src={hoverRight ? RightWhiteArrow : RedArrowRight}
+          alt="right"
+          className="w-[22px] h-[22px]"
+        />
       </button>
     </div>
   );
+};
+
 
   return (
     <div className="my-[100px] md:my-[120px] lg:my-[180px] mx-[7%]">
