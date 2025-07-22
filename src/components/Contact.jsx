@@ -44,10 +44,10 @@ const Contact = () => {
       <div className="flex flex-col lg:flex-row lg:gap-[60px] xl:gap-[140px] 2xl:gap-[167px]">
         {/* LEFT SIDE */}
         <div className="lg:w-[532px]">
-          <h1 className="text-[24px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold leading-[32px] md:leading-[38px] lg:leading-[45px] lato">
+          <h1 className="text-[24px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold leading-[32px] md:leading-[38px] lg:leading-[45px] lato text-[#363435]">
             We'd Love to Hear From You
           </h1>
-          <h2 className="text-[#4B4B4B] redhat font-medium leading-[30px] text-[14px] md:text-[15px] lg:text-[16px] mt-[6px] md:mt-[10px] lg:mt-[13px]">
+          <h2 className="text-[#363435] redhat font-medium leading-[30px] text-[14px] md:text-[15px] lg:text-[16px] mt-[6px] md:mt-[10px] lg:mt-[13px]">
             Have a question, concern, or looking to collaborate? We're always
             here to help. Whether you need more information about our recovery
             services, want to schedule a consultation, or are exploring a
@@ -121,7 +121,7 @@ const Contact = () => {
 
         {/* RIGHT SIDE FORM */}
         <div className="bg-[#F3F3F3] border border-[#E0E0E0] rounded-[10px] p-[25px] md:p-[30px] lg:p-[43px] w-full lg:w-[952px] h-full mt-[40px] lg:mt-0">
-          <h3 className="text-[20px] md:text-[22px] lg:text-[24px] font-bold lato leading-[24px]">
+          <h3 className="text-[20px] md:text-[22px] lg:text-[24px] font-bold lato leading-[24px] text-[#363435]">
             Contact Us Form
           </h3>
           <div className="h-[1px] mt-[16px] md:mt-[22x] my-[30px] w-full bg-[#DEDEDE]"></div>

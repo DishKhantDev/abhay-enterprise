@@ -5,9 +5,9 @@ import Logo from "@/assests/images/footer-logo.png";
 const Footer = () => {
   const navLinks = [
     { name: "HOME", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Our Clients", href: "#ourclients" },
-    { name: "Why choose us", href: "#Whychooseus" },
+    { name: "About Us", href: "#about-us" },
+    { name: "Our Clients", href: "#our-clients" },
+    { name: "Why choose us", href: "#Why-choose-us" },
     { name: "Contact Us", href: "#contact" },
   ];
 
