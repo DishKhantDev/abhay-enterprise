@@ -46,14 +46,14 @@ const WhyChooseUs = () => {
             </p>
             <Image src={Rectangle} alt="Rectangle" />
           </div>
-          <h1 className="text-[24px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold md:leading-[38px] lg:leading-[45px] leading-[32px] lato text-black md:flex-1/2 mt-[8px] w-[80%]">
+          <h1 className="text-[24px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold md:leading-[38px] lg:leading-[45px] leading-[32px] lato text-[#363435] md:flex-1/2 mt-[8px] w-[80%]">
             Trusted Financial Solutions Backed by Experience, Integrity &
             Results
           </h1>
         </div>
 
         <div className="md:flex-1/2">
-          <h2 className="text-[14px] md:text-[15px] lg:text-[16px] text-[#363435] font-medium  leading-[30px] ">
+          <h2 className="text-[14px] md:text-[15px] lg:text-[16px] text-[#363435] font-medium  leading-[30px] redhat">
             At Abhay Enterprise, we specialize in turning unpaid dues into
             recovered revenue—ethically and efficiently. With a strong
             foundation built on trust, transparency, and a proven track record,
@@ -70,7 +70,7 @@ const WhyChooseUs = () => {
         {cardData.map((card, index) => (
           <div
             key={index}
-            className={`bg-[#F3F3F3] border border-[#E0E0E0] rounded-[5px] flex flex-row md:flex-col  justify-center  gap-[24px] md:gap-[20px] lg:gap-[0px]  items-center md:items-start transition px-[21px] md:py-[23px]  2xl:px-[41px] 2xl:py-[41px]  h-full ${
+            className={`bg-[#F3F3F3] border border-[#E0E0E0] redhat rounded-[5px] flex flex-row md:flex-col  justify-center  gap-[24px] md:gap-[20px] lg:gap-[0px]  items-center md:items-start transition px-[21px] md:py-[23px]  2xl:px-[41px] 2xl:py-[41px]  h-full ${
               index === 1 || index === 3 ? "2xl:mt-[65px]" : ""
             }`}
           >
@@ -83,7 +83,7 @@ const WhyChooseUs = () => {
             </div>
 
             <div className="md:hidden">
-              <h3 className="text-[20px] sm:text-[20px] lg:text-[16px] xl:text-[22px] font-bold leading-[30px]">
+              <h3 className="text-[20px] sm:text-[20px] lg:text-[16px] xl:text-[22px] font-bold leading-[30px] text-[#363435]">
                 {card.title}
               </h3>
               <p className="text-[14px] md:text-[15px]  lg:text-[16px] text-[#363435] font-medium  leading-[30px] mt-[6px] lg:mt-[21px]  2xl:mt-[31px] redhat 2xl:w-[72%]">
@@ -91,7 +91,7 @@ const WhyChooseUs = () => {
               </p>
             </div>
 
-            <h3 className="hidden md:block text-[20px] sm:text-[20px] lg:text-[18px] xl:text-[22px] font-bold leading-[30px]">
+            <h3 className="hidden md:block text-[20px] sm:text-[20px] lg:text-[18px] xl:text-[22px] font-bold leading-[30px] text-[#363435]">
               {card.title}
             </h3>
             <p className="hidden md:block text-[14px] md:text-[15px]  lg:text-[16px] text-[#363435] font-medium  leading-[30px]  mt-[6px] lg:mt-[21px]  2xl:mt-[31px] redhat 2xl:w-[72%]">

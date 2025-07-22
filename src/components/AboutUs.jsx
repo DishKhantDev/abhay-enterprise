@@ -30,7 +30,7 @@ const AboutUs = () => {
       {/* TEXT SECTION */}
     <div className="w-full bg-[#F3F3F3] border border-[#E0E0E0] 2xl:w-full rounded-[10px] pl-custom px-[20px] md:px-[30px] py-[25px] xl:pb-[41px] xl:pt-[99px] xl:pr-[57px] xl:pl-[100px] 2xl:pl-[222px] xl:ml-[540px] 2xl:ml-[540px] mt-[30px] xl:mt-0 xl:min-h-[712px] 2xl:min-h-[712px]">
 
-        <div className="flex flex-col gap-[20px] text-[#363435] text-[14px] md:text-[15px] lg:text-[16px] leading-[30px]">
+        <div className="flex flex-col gap-[20px] text-[#363435] text-[14px] md:text-[15px] lg:text-[16px] leading-[30px] redhat">
           <h4 className="font-medium text-[#363435]">
             At Abhay Enterprise, we specialize in delivering reliable, ethical,
             and result-driven financial recovery solutions. With a deep
@@ -54,7 +54,7 @@ const AboutUs = () => {
                   alt="point"
                   className="w-[16px] h-[16px] mt-[6px]"
                 />
-                <h3 className="font-black text-[14px] md:text-[15px] lg:text-[16px] leading-[30px] ">
+                <h3 className="font-black redhat text-[14px] md:text-[15px] lg:text-[16px] leading-[30px] ">
                   {item}
                 </h3>
               </li>

@@ -126,7 +126,7 @@ const Contact = () => {
           </h3>
           <div className="h-[1px] mt-[16px] md:mt-[22x] my-[30px] w-full bg-[#DEDEDE]"></div>
 
-          <form className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] md:gap-[25px] 2xl:gap-[30px]">
+          <form className="grid grid-cols-1 lg:grid-cols-2   gap-y-[30px] gap-x-[20px] md:gap-x-[25px] 2xl:gap-x-[30px]">
             {formFields.map((field, index) => (
               <div
                 key={index}
@@ -158,8 +158,8 @@ const Contact = () => {
 
             <div className="lg:col-span-2 lg:mt-[18px] ">
               <button
-                className="border px-[30px] text-[14px] 
-        xl:px-[45px] lg:px-[70px] lg:py-[5px] xl:py-[5px] 
+                className="border px-[50px] text-[14px] 
+        xl:px-[70px] lg:px-[70px] lg:py-[5px] xl:py-[5px] 
         lg:text-[16px] xl:text-[18px] font-medium cursor-pointer 
         rounded-tr-[20px] rounded-bl-[20px] leading-[40px] text-white bg-[#ED323A] hover:bg-white border-[#ED323A] hover:border-[#ED323A] hover:text-[#ED323A] transition-all duration-300 ease-in-out"
               >

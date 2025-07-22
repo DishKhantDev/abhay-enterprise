@@ -18,7 +18,7 @@ const Footer = () => {
 
       {/* Logo */}
       <div className="flex justify-center mb-4 ">
-        <Image src={Logo} alt="Website Logo " className="h-[150px] md:h-[250px]  lg:h-[305px] w-auto" />
+        <Image src={Logo} alt="Website Logo " className="h-[170px] md:h-[260px]  lg:h-[315px] w-auto" />
       </div>
 
       {/* Company Description */}
@@ -42,7 +42,7 @@ const Footer = () => {
       </div>
       <div className="h-[1.5px] w-full bg-[#C8C8C8] mt-[40px] mb-[29px] " />
 
-      <div className="flex flex-col lg:flex-row justify-between items-center w-full text-[14px] md:text-[15px] lg:text-[16px] lato font-normal leading-[30px] text-[#4E5566]">
+      <div className="flex flex-col lg:flex-row justify-between mb-[29px] items-center w-full text-[14px] md:text-[15px] lg:text-[16px] lato font-normal leading-[30px] text-[#4E5566]">
         <h4>Privacy Policy  |  Terms & Conditions</h4>
         <h4>© 2025 Abhay Enterprise. All rights reserved.</h4>
         <h4>Made With ❤️ by Digieagle INC</h4>
