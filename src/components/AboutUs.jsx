@@ -3,6 +3,7 @@ import SideImage from "@/assests/images/side2.png";
 import Image from "next/image";
 import Point from "@/assests/icons/point.svg";
 import ButtonMain from "./ui/ButtonMain";
+import Link from "next/link";
 
 const AboutUs = () => {
   const featureList = [
@@ -63,7 +64,12 @@ const AboutUs = () => {
           </ul>
         </div>
 
-        <ButtonMain text="Get In Touch" className="mt-[48px]" />
+        <Link href="#contact" className="hidden md:block group">
+            <ButtonMain
+              text="Get In Touch"
+              className="text-white mt-[48px]  transition-all duration-300 ease-in-out"
+            />
+          </Link>
       </div>
     </div>
   );
