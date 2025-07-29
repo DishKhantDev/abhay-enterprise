@@ -163,16 +163,20 @@ const Testimonials = () => {
 
 function TestimonialCard({ item }) {
   return (
-    <div className="w-full md:min-w-[350px] lg:min-w-[536px] lg:mt-[80px] bg-[#F3F3F3] rounded-[5px] px-[30px] py-[20px] flex flex-col justify-between">
+    <div className="w-full md:min-w-[350px] lg:min-w-[536px] xl:max-w-[536px] lg:mt-[80px] bg-[#F3F3F3] rounded-[5px] px-[30px] py-[20px] flex flex-col justify-between h-full md:h-[300px] lg:h-[352px]">
       <p className="text-[14px] md:text-[15px] lg:text-[16px] leading-[35px] md:leading-[40px] redhat text-[#363435] font-[500]">
         "{item.message}"
       </p>
       <div className="flex items-center gap-4 mt-8">
-        <Image
-          src={item.image}
-          alt={item.name}
-          className="w-[45px] h-[45px] rounded-full object-cover"
-        />
+        <div className="w-[45px] h-[45px] rounded-full overflow-hidden relative">
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            className="object-cover rounded-full"
+          />
+        </div>
+
         <div>
           <h4 className="text-[14px] font-semibold text-[#ED323A]">
             {item.name}
