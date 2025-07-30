@@ -7,48 +7,80 @@ import Rectangle from "@/assests/icons/rectangle.png";
 import Symbol from "@/assests/images/review-symbol.png";
 import LeftWhiteArrow from "@/assests/icons/left-white-arrow.svg";
 import RightWhiteArrow from "@/assests/icons/right-white-arrow.svg";
+import Profile from "@/assests/images/profile.jpg"; // default profile image
+
+// STATIC DATA FOR NOW
+const staticTestimonials = [
+  {
+    name: "Rohit Mehta",
+    message: "Abhay Enterprise has been an absolute game-changer for our business. Their ethical approach to financial recovery restored not just our overdue payments but also our confidence in how debt recovery should be done. Professional, respectful, and results-driven—exactly what we were looking for.",
+    role: "CEO, Mehta Industries",
+    image: Profile,
+  },
+  {
+    name: "Anita Sharma",
+    message: "Highly professional team and top-notch support. Recommended!",
+    role: "Project Manager, BuildWell Corp",
+    image: Profile,
+  },
+  {
+    name: "Vikram Patel",
+    message: "Reliable supplier with great attention to detail. Will work again.",
+    role: "Procurement Head, SteelWays Ltd",
+    image: Profile,
+  },
+];
 
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState([]);
+  const [testimonials, setTestimonials] = useState(staticTestimonials); // initially static
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
+  // 🔄 Uncomment below to enable DYNAMIC fetch
+  /*
   useEffect(() => {
-    fetch("https://abhayenterprise.com/wp-json/wp/v2/testimonials-acf")
+     fetch("https://abhayenterprise.com/wp-json/wp/v2/testimonials-acf")
       .then((res) => res.json())
       .then((data) => {
+        if (!Array.isArray(data)) {
+          console.error("Unexpected API response:", data);
+          return;
+        }
+
         const formatted = data.map((item) => ({
           message: item.content,
           name: item.name,
           role: `${item.designation}, ${item.company_name}`,
           image: item.image,
         }));
+
         setTestimonials(formatted);
       })
       .catch((err) => console.error("Failed to fetch testimonials:", err));
   }, []);
+  */
 
   useEffect(() => {
-    const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    setCurrentIndex((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    setCurrentIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
     );
   };
 
   const TextContent = () => (
-    <div className="flex flex-col gap-[25px] lg:gap-[58px]  w-full">
+    <div className="flex flex-col gap-[25px] lg:gap-[58px] w-full">
       <div className="flex items-center gap-[10px]">
         <p className="text-[#ED323A] text-[12px] font-black uppercase lato tracking-[0.1em]">
           CLIENT TESTIMONIALS
@@ -56,11 +88,7 @@ const Testimonials = () => {
         <Image src={Rectangle} alt="Rectangle" />
       </div>
       <div className="flex flex-col gap-[13px]">
-        <Image
-          src={Symbol}
-          alt="Symbol"
-          className="h-[20px] w-[25px] lg:w-25 lg:h-14"
-        />
+        <Image src={Symbol} alt="Symbol" className="h-[20px] w-[25px] lg:w-25 lg:h-14" />
         <h1 className="text-[24px] sm:text-[25px] md:text-[28px] ml-6 md:ml-0 l1 text-[#000000] lg:text-[30px] xl:text-[32px] font-bold leading-[32px] md:leading-[38px] lg:leading-[45px] redhat">
           Their Words Reflect Our Consistent{" "}
           <span className="hidden md:block">Value</span>
@@ -161,9 +189,10 @@ const Testimonials = () => {
   );
 };
 
+// 📦 TestimonialCard component
 function TestimonialCard({ item }) {
   return (
-    <div className="w-full md:min-w-[350px] lg:min-w-[536px] xl:max-w-[536px] lg:mt-[80px] bg-[#F3F3F3] rounded-[5px] px-[30px] py-[20px] flex flex-col justify-between h-full md:h-[300px] lg:h-[352px]">
+    <div className="w-full md:min-w-[350px] lg:min-w-[536px] xl:max-w-[536px] lg:mt-[80px] bg-[#F3F3F3] rounded-[5px] px-[30px] py-[20px] flex flex-col justify-between h-full md:h-auto lg:h-[352px]">
       <p className="text-[14px] md:text-[15px] lg:text-[16px] leading-[35px] md:leading-[40px] redhat text-[#363435] font-[500]">
         "{item.message}"
       </p>
@@ -176,11 +205,8 @@ function TestimonialCard({ item }) {
             className="object-cover rounded-full"
           />
         </div>
-
         <div>
-          <h4 className="text-[14px] font-semibold text-[#ED323A]">
-            {item.name}
-          </h4>
+          <h4 className="text-[14px] font-semibold text-[#ED323A]">{item.name}</h4>
           <p className="text-[13px] text-[#363636]">{item.role}</p>
         </div>
       </div>
