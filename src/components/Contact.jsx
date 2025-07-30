@@ -1,10 +1,13 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import CallIcon from "@/assests/icons/call.svg";
 import EmailIcon from "@/assests/icons/email.svg";
 import LocationIcon from "@/assests/icons/location.svg";
-import ButtonMain from "./ui/ButtonMain";
 
 const formFields = [
   {
@@ -28,7 +31,6 @@ const formFields = [
     placeholder: "Enter Phone Number",
     colSpan: 1,
   },
-
   {
     label: "Message",
     name: "message",
@@ -39,6 +41,77 @@ const formFields = [
 ];
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.firstName) newErrors.firstName = "First Name is required";
+    if (
+      !formData.email ||
+      !/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,10}$/.test(formData.email)
+    )
+      newErrors.email = "Valid email is required";
+    if (!formData.phoneNumber || !/^\d{10}$/.test(formData.phoneNumber))
+      newErrors.phoneNumber = "Valid 10-digit phone number is required";
+    return newErrors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+    try {
+      const response = await axios.post(`${apiBaseUrl}contact_submission`, {
+        name: formData.firstName,
+        email: formData.email,
+        phone: formData.phoneNumber,
+        message: formData.message,
+      });
+
+      const res = response.data;
+
+      if (res.success) {
+        toast.success(
+          `Thank you ${formData.firstName}, your inquiry has been submitted!`
+        );
+        setFormData({
+          firstName: "",
+          email: "",
+          phoneNumber: "",
+          message: "",
+        });
+        setErrors({});
+      } else {
+        toast.error(res.message || "Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error(error?.response?.data?.message || "Something went wrong.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="pt-[30px] md:pt-[50] lg:pt-[80px] mx-[7%]">
       <div className="flex flex-col lg:flex-row lg:gap-[60px] xl:gap-[140px] 2xl:gap-[167px]">
@@ -56,7 +129,7 @@ const Contact = () => {
           <div className="h-[1px] my-[18px] md:my-[22px] lg:my-[40px] xl:my-[42px] w-full bg-[#DEDEDE]"></div>
 
           <div className="space-y-[25px] md:space-y-[30px] lg:spce-y-[35px] 2xl:space-y-[42px]">
-            {/* Address Block */}
+            {/* Address */}
             <div className="flex items-start gap-4">
               <div className="bg-[#ED323A] p-2 flex items-center justify-center h-[30px] w-[30px] lg:min-w-[35px] lg:min-h-[38px] 2xl:min-w-[40px] 2xl:min-h-[40px]">
                 <Image
@@ -70,14 +143,17 @@ const Contact = () => {
                   Address
                 </h3>
                 <p className="text-[14px] md:text-[15px] lg:text-[16px] font-medium leading-[30px] text-[#363435] redhat">
-                  Abhay Enterprise Lorem Tower, <br /> 2nd Floor, Ipsum Nagar,
-                  Sector 45, Near Dolor <br /> Bank, Sit Amet Road, Consectetur
-                  (West), Metropolis - 110011, Lorem Pradesh, India.
+                  Abhay Enterprise Lorem Tower,
+                  <br />
+                  2nd Floor, Ipsum Nagar, Sector 45, Near Dolor Bank,
+                  <br />
+                  Sit Amet Road, Consectetur (West), Metropolis - 110011, Lorem
+                  Pradesh, India.
                 </p>
               </div>
             </div>
 
-            {/* Call Block */}
+            {/* Call */}
             <div className="flex items-start gap-4">
               <div className="bg-[#ED323A] p-2 flex items-center justify-center h-[30px] w-[30px] lg:min-w-[35px] lg:min-h-[38px] 2xl:min-w-[40px] 2xl:min-h-[40px]">
                 <Image
@@ -98,7 +174,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Email Block */}
+            {/* Email */}
             <div className="flex items-start gap-4">
               <div className="bg-[#ED323A] p-2 flex items-center justify-center h-[30px] w-[30px] lg:min-w-[35px] lg:min-h-[38px] 2xl:min-w-[40px] 2xl:min-h-[40px]">
                 <Image
@@ -124,9 +200,12 @@ const Contact = () => {
           <h3 className="text-[20px] md:text-[22px] lg:text-[24px] font-bold lato leading-[24px] text-[#363435]">
             Contact Us Form
           </h3>
-          <div className="h-[1px] mt-[16px] md:mt-[22x] my-[30px] w-full bg-[#DEDEDE]"></div>
+          <div className="h-[1px] mt-[16px] my-[30px] w-full bg-[#DEDEDE]"></div>
 
-          <form className="grid grid-cols-1 lg:grid-cols-2   gap-y-[30px] gap-x-[20px] md:gap-x-[25px] 2xl:gap-x-[30px]">
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-y-[30px] gap-x-[20px] md:gap-x-[25px] 2xl:gap-x-[30px]"
+          >
             {formFields.map((field, index) => (
               <div
                 key={index}
@@ -143,6 +222,8 @@ const Contact = () => {
                     name={field.name}
                     placeholder={field.placeholder}
                     rows={8}
+                    value={formData[field.name]}
+                    onChange={handleChange}
                     className="w-full l1 border border-[#D4D4D4] bg-white lato placeholder:redhat rounded-[5px] h-[140px] 2xl:h-[156px] py-[20px] md:py-[22px] px-[15px] md:px-[23px] lg:px-[30px] text-[14px] resize-none placeholder-[#575757] focus:outline-none"
                   />
                 ) : (
@@ -150,36 +231,86 @@ const Contact = () => {
                     type={field.type}
                     name={field.name}
                     placeholder={field.placeholder}
+                    value={formData[field.name]}
+                    onChange={handleChange}
                     className="w-full l1 border border-[#D4D4D4] bg-white rounded-[5px] lato placeholder:redhat h-[50px] md:h-[55px] lg:h-[60px] text-[14px] py-[20px] md:py-[22px] px-[15px] md:px-[23px] lg:px-[30px] placeholder-[#575757] focus:outline-none"
                   />
+                )}
+                {errors[field.name] && (
+                  <p className="text-red-600 text-sm mt-1">
+                    {errors[field.name]}
+                  </p>
                 )}
               </div>
             ))}
 
-            <div className="lg:col-span-2 lg:mt-[18px] ">
+            <div className="lg:col-span-2 lg:mt-[18px]">
               <button
-                className="border px-[50px] text-[14px] 
-        xl:px-[70px] lg:px-[70px] lg:py-[5px] xl:py-[5px] 
-        lg:text-[16px] xl:text-[18px] font-medium cursor-pointer 
-        rounded-tr-[20px] rounded-bl-[20px] leading-[40px] text-white bg-[#ED323A] hover:bg-white border-[#ED323A] hover:border-[#ED323A] hover:text-[#ED323A] transition-all duration-300 ease-in-out"
+                type="submit"
+                disabled={isSubmitting}
+                className="border px-[50px] text-[14px] xl:px-[70px] lg:px-[70px] lg:py-[5px] xl:py-[5px] 
+                lg:text-[16px] xl:text-[18px] font-medium cursor-pointer 
+                rounded-tr-[20px] rounded-bl-[20px] leading-[40px] text-white bg-[#ED323A] 
+                hover:bg-white border-[#ED323A] hover:border-[#ED323A] hover:text-[#ED323A] 
+                transition-all duration-300 ease-in-out flex items-center justify-center gap-2"
               >
-                Submit
+                {isSubmitting ? (
+                  <>
+                    <span className="w-5 h-5 border-2 border-[#ED323A] hover:border-white border-t-transparent rounded-full animate-spin"></span>
+                    Submitting...
+                  </>
+                ) : (
+                  "Submit"
+                )}
               </button>
             </div>
           </form>
         </div>
       </div>
-      <div className="mt-[80px] h-[350px] md:h-[400px] lg:h-[500px] 2xl:h-[564px]">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.6101296400685!2d80.93936211462399!3d26.846693983158154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2a111111111%3A0xabcdef123456789!2sYour%20Company%20Location!5e0!3m2!1sen!2sin!4v1711111111111"
-          width="100%"
-          height="100%"
-          allowFullScreen={true}
-          loading="lazy"
-          className="border-0 w-full h-full"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+
+      {/* Google Map */}
+      <div className="relative mt-[80px] h-[350px] md:h-[400px] lg:h-[500px] 2xl:h-[564px]">
+  {/* Google Map Iframe */}
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.678630207334!2d70.8005774749752!3d22.29322534304586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca1b18a5e4cf%3A0x6a9f9d4ef2bb5d0d!2sTrikon%20Baug%2C%20Rajkot%2C%20Gujarat%20360001!5e0!3m2!1sen!2sin!4v1722240000000"
+    width="100%"
+    height="100%"
+    allowFullScreen
+    loading="lazy"
+    className="border-0 w-full h-full"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+
+  {/* Fixed Center Pin */}
+  <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full z-30 flex flex-col items-center text-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="33"
+      height="47"
+      viewBox="0 0 33 47"
+      fill="none"
+    >
+      <path
+        d="M32.0367 16.657C32.0367 14.5691 31.6255 12.5016 30.8265 10.5727C30.0275 8.64368 28.8563 6.89097 27.38 5.41459C25.9036 3.93821 24.1509 2.76708 22.2219 1.96807C20.2929 1.16906 18.2254 0.757813 16.1375 0.757812C14.0496 0.757813 11.9821 1.16906 10.0531 1.96807C8.12415 2.76708 6.37144 3.93821 4.89506 5.41459C3.41868 6.89097 2.24755 8.64368 1.44854 10.5727C0.649526 12.5016 0.238281 14.5691 0.238281 16.657C0.238281 19.8074 1.16725 22.7374 2.74809 25.2085H2.72992L16.1375 46.1842L29.5451 25.2085H29.5292C31.1666 22.657 32.037 19.6888 32.0367 16.657ZM16.1375 23.471C14.3303 23.471 12.5972 22.7531 11.3193 21.4752C10.0414 20.1974 9.32355 18.4642 9.32355 16.657C9.32355 14.8499 10.0414 13.1167 11.3193 11.8388C12.5972 10.561 14.3303 9.84308 16.1375 9.84308C17.9447 9.84308 19.6778 10.561 20.9557 11.8388C22.2336 13.1167 22.9515 14.8499 22.9515 16.657C22.9515 18.4642 22.2336 20.1974 20.9557 21.4752C19.6778 22.7531 17.9447 23.471 16.1375 23.471Z"
+        fill="#FF0D0D"
+      />
+    </svg>
+    <h2 className="mt-1 text-[#2F3034] redhat text-[12px] leading-[8px] font-bold  bg-white">
+      ABHAY ENTERPRISE
+    </h2>
+  </div>
+</div>
+
+
+
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
     </div>
   );
 };

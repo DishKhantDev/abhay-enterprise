@@ -3,6 +3,7 @@ import Image from "next/image";
 import HomeMainImage from "@/assests/images/banner 1 1.svg";
 import ButtonMain from "./ui/ButtonMain";
 import Navbar from "./ui/Navbar";
+import Link from "next/link";
 
 export const HomeMain = () => {
   return (
@@ -32,7 +33,12 @@ export const HomeMain = () => {
           bottom line, results matter.
         </h2>
         <div className="mt-[18px]">
-          <ButtonMain text="Get In Touch" />
+         <Link href="#contact" className="hidden md:block group">
+            <ButtonMain
+              text="Get In Touch"
+              className="text-white "
+            />
+          </Link>
         </div>
       </div>
     </div>
