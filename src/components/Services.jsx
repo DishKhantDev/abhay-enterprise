@@ -9,12 +9,13 @@ import RedArrowRight from "@/assests/icons/red-right-arrow.svg";
 import Side1 from "@/assests/images/side1.png";
 import Side2 from "@/assests/images/side2.png";
 import Side3 from "@/assests/images/side3.png";
+import Side4 from "@/assests/images/side4.png";
 
 const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
- const [hoverLeft, setHoverLeft] = useState(false);
-const [hoverRight, setHoverRight] = useState(false);
+  const [hoverLeft, setHoverLeft] = useState(false);
+  const [hoverRight, setHoverRight] = useState(false);
 
   const cardData = [
     {
@@ -28,14 +29,6 @@ const [hoverRight, setHoverRight] = useState(false);
     {
       image: Side3,
       name: "NPA",
-    },
-    {
-      image: Side1,
-      name: "REAL",
-    },
-    {
-      image: Side1,
-      name: "REAL",
     },
     {
       image: Side1,
@@ -97,38 +90,37 @@ const [hoverRight, setHoverRight] = useState(false);
     </div>
   );
 
- const ArrowControls = () => (
-  <div className="flex gap-[16px] md:mt-[43px] mt-[24px]">
-    {/* Left Arrow */}
-    <div
-      className="p-[13px] rounded-full border-white border cursor-pointer hover:bg-white transition-all duration-300"
-      onClick={prevSlide}
-      onMouseEnter={() => setHoverLeft(true)}
-      onMouseLeave={() => setHoverLeft(false)}
-    >
-      <Image
-        src={hoverLeft ? RedArrowLeft : LeftWhiteArrow}
-        alt="Left Arrow"
-        className="w-[22px] h-[22px]"
-      />
-    </div>
+  const ArrowControls = () => (
+    <div className="flex gap-[16px] md:mt-[43px] mt-[24px]">
+      {/* Left Arrow */}
+      <div
+        className="p-[13px] rounded-full border-white border cursor-pointer hover:bg-white transition-all duration-300"
+        onClick={prevSlide}
+        onMouseEnter={() => setHoverLeft(true)}
+        onMouseLeave={() => setHoverLeft(false)}
+      >
+        <Image
+          src={hoverLeft ? RedArrowLeft : LeftWhiteArrow}
+          alt="Left Arrow"
+          className="w-[22px] h-[22px]"
+        />
+      </div>
 
-    {/* Right Arrow */}
-    <div
-      className="p-[13px] rounded-full border-white border cursor-pointer hover:bg-white transition-all duration-300"
-      onClick={nextSlide}
-      onMouseEnter={() => setHoverRight(true)}
-      onMouseLeave={() => setHoverRight(false)}
-    >
-      <Image
-        src={hoverRight ? RedArrowRight : RightWhiteArrow}
-        alt="Right Arrow"
-        className="w-[22px] h-[22px]"
-      />
+      {/* Right Arrow */}
+      <div
+        className="p-[13px] rounded-full border-white border cursor-pointer hover:bg-white transition-all duration-300"
+        onClick={nextSlide}
+        onMouseEnter={() => setHoverRight(true)}
+        onMouseLeave={() => setHoverRight(false)}
+      >
+        <Image
+          src={hoverRight ? RedArrowRight : RightWhiteArrow}
+          alt="Right Arrow"
+          className="w-[22px] h-[22px]"
+        />
+      </div>
     </div>
-  </div>
-);
-
+  );
 
   return (
     <div className="min-h-[781px] mt-[60px] md:mt-[100px] lg:mt-[150px]  bg-[#363435] pl-[7%] gap-[35px] flex flex-col md:flex-row w-[100%]">
