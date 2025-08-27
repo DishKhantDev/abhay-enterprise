@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import RedArrowLeft from "@/assests/icons/red-left-arrow.svg";
 import RedArrowRight from "@/assests/icons/red-right-arrow.svg";
@@ -7,7 +7,7 @@ import Rectangle from "@/assests/icons/rectangle.png";
 import Symbol from "@/assests/images/review-symbol.png";
 import LeftWhiteArrow from "@/assests/icons/left-white-arrow.svg";
 import RightWhiteArrow from "@/assests/icons/right-white-arrow.svg";
-import Profile from "@/assests/images/profile.jpg"; // default profile image
+import Profile from "@/assests/images/profile.jpg"; 
 
 // STATIC DATA FOR NOW
 const staticTestimonials = [
@@ -32,9 +32,16 @@ const staticTestimonials = [
 ];
 
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState(staticTestimonials); // initially static
+  const [testimonials, setTestimonials] = useState(staticTestimonials);
   const [currentIndex, setCurrentIndex] = useState(0);
+  // Remove unused variable
   const [isMobile, setIsMobile] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const intervalRef = useRef(null);
+
+  // Auto-scroll configuration
+  const AUTO_SCROLL_INTERVAL = 3000; // 4 seconds
+  const PAUSE_ON_HOVER = true; // Set to false to disable pause on hover
 
   // 🔄 Uncomment below to enable DYNAMIC fetch
   /*
@@ -60,6 +67,7 @@ const Testimonials = () => {
   }, []);
   */
 
+  // Handle window resize
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -67,16 +75,99 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Auto-scroll functionality
+  useEffect(() => {
+    const startAutoScroll = () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      
+      intervalRef.current = setInterval(() => {
+        if (!isHovered || !PAUSE_ON_HOVER) {
+          setCurrentIndex((prev) => 
+            prev === testimonials.length - 1 ? 0 : prev + 1
+          );
+        }
+      }, AUTO_SCROLL_INTERVAL);
+    };
+
+    if (testimonials.length > 1) {
+      startAutoScroll();
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [testimonials.length, isHovered, PAUSE_ON_HOVER, AUTO_SCROLL_INTERVAL]);
+
   const nextSlide = () => {
+    // Reset auto-scroll timer when manually navigating
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    
     setCurrentIndex((prev) =>
       prev === testimonials.length - 1 ? 0 : prev + 1
     );
+
+    // Restart auto-scroll after manual interaction
+    setTimeout(() => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(() => {
+        if (!isHovered || !PAUSE_ON_HOVER) {
+          setCurrentIndex((prev) => 
+            prev === testimonials.length - 1 ? 0 : prev + 1
+          );
+        }
+      }, AUTO_SCROLL_INTERVAL);
+    }, 100);
   };
 
   const prevSlide = () => {
+    // Reset auto-scroll timer when manually navigating
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    
     setCurrentIndex((prev) =>
       prev === 0 ? testimonials.length - 1 : prev - 1
     );
+
+    // Restart auto-scroll after manual interaction
+    setTimeout(() => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(() => {
+        if (!isHovered || !PAUSE_ON_HOVER) {
+          setCurrentIndex((prev) => 
+            prev === testimonials.length - 1 ? 0 : prev + 1
+          );
+        }
+      }, AUTO_SCROLL_INTERVAL);
+    }, 100);
+  };
+
+  const handleMouseEnter = () => {
+    if (PAUSE_ON_HOVER) {
+      setIsHovered(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (PAUSE_ON_HOVER) {
+      setIsHovered(false);
+    }
+  };
+
+  // Touch handlers for mobile
+  const handleTouchStart = () => {
+    if (PAUSE_ON_HOVER) {
+      setIsHovered(true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (PAUSE_ON_HOVER) {
+      // Delay to prevent immediate resume when user is still interacting
+      setTimeout(() => {
+        setIsHovered(false);
+      }, 500);
+    }
   };
 
   const TextContent = () => (
@@ -132,6 +223,36 @@ const Testimonials = () => {
     );
   };
 
+  // Pagination dots for better UX (optional)
+  const PaginationDots = () => (
+    <div className="flex justify-center gap-2 mt-4">
+      {testimonials.map((_, index) => (
+        <button
+          key={index}
+          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            index === currentIndex ? 'bg-[#ED323A]' : 'bg-gray-300'
+          }`}
+          onClick={() => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+            setCurrentIndex(index);
+            
+            // Restart auto-scroll
+            setTimeout(() => {
+              if (intervalRef.current) clearInterval(intervalRef.current);
+              intervalRef.current = setInterval(() => {
+                if (!isHovered || !PAUSE_ON_HOVER) {
+                  setCurrentIndex((prev) => 
+                    prev === testimonials.length - 1 ? 0 : prev + 1
+                  );
+                }
+              }, AUTO_SCROLL_INTERVAL);
+            }, 100);
+          }}
+        />
+      ))}
+    </div>
+  );
+
   return (
     <div className="my-[100px] md:my-[120px] lg:my-[180px] mx-[7%]">
       {testimonials.length === 0 ? (
@@ -145,7 +266,13 @@ const Testimonials = () => {
               <ArrowControls />
             </div>
 
-            <div className="flex-1 overflow-hidden">
+            <div 
+              className="flex-1 overflow-hidden"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
                 className="flex gap-[25px] transition-transform duration-500 ease-in-out"
                 style={{
@@ -167,7 +294,13 @@ const Testimonials = () => {
           {/* Mobile Layout */}
           <div className="md:hidden flex flex-col">
             <TextContent />
-            <div className="mt-[24px] overflow-hidden">
+            <div 
+              className="mt-[24px] overflow-hidden"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
