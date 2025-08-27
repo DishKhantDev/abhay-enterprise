@@ -1,13 +1,25 @@
+"use client";
 import React from "react";
 import Hdfce from "@/assests/images/hdfc-logo.png";
 import OneCard from "@/assests/images/one-card.png";
 import Tata from "@/assests/icons/tata-capital.svg";
+import Chola from "@/assests/images/chola-logo.png";
+import Fullerton from "@/assests/images/fullerton-logo.png";
 import Rectangle from "@/assests/icons/rectangle.png";
 import Image from "next/image";
 
 const OurClients = () => {
-  // Repeating logos to create an infinite scroll effect
-  const logos = [Hdfce, OneCard, Tata, Hdfce, OneCard, Tata];
+  // Logos with experience text
+  const clients = [
+    { logo: Hdfce, exp: "10 Years of Experience" },
+    { logo: OneCard, exp: "3 Years of Experience" },
+    { logo: Tata, exp: "2 Years of Experience" },
+    { logo: Chola, exp: "14 Years of Experience" },
+    { logo: Fullerton, exp: "1 Years of Experience" },
+  ];
+
+  // Repeat logos for infinite scroll effect
+  const logos = [...clients, ...clients, ...clients,...clients,...clients];
 
   return (
     <div className="pt-[60px] md:pt-[100px] lg:pt-[150px] ">
@@ -26,20 +38,22 @@ const OurClients = () => {
 
       {/* Slider container */}
       <div className="mt-[50px] overflow-hidden relative w-full">
-        <div className="flex w-max animate-scroll  gap-6">
-          {logos.map((image, index) => (
+        <div className="flex w-max animate-scroll gap-6">
+          {logos.map((item, index) => (
             <div
               key={index}
-              className="w-[calc(100vw/3rem)] md:w-[calc(100vw/3-4rem)] lg:w-[calc(100vw/3-5rem)]
-              h-[80px] md:h-[100px] xl:h-[206px] flex justify-center items-center 
+              className="w-[calc(100vw/3rem)] md:w-[calc(120vw/3-4rem)] lg:w-[calc(100vw/3-5rem)]
+              h-auto flex flex-col justify-center items-center 
               bg-[#F3F3F3] border border-[#E0E0E0] rounded-[8px] p-4"
             >
               <Image
-                src={image}
+                src={item.logo}
                 alt={`ClientLogo-${index}`}
-                className="object-contain h-[90px] xl:h-[140px] xl:w-[280px] w-[180px] "
-                
+                className="object-contain h-[90px] w-[180px] md:h-[90px] xl:h-[140px] xl:w-[280px] md:w-[180px]"
               />
+              <h6 className="red hat text-[16px] font-[500] leading-[150%] text-[#363435] mt-2">
+                {item.exp}
+              </h6>
             </div>
           ))}
         </div>
