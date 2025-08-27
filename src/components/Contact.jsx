@@ -184,10 +184,16 @@ const Contact = () => {
                   Call us on
                 </h3>
                 <a
-                  href="tel:+918140800009"
+                  href="tel:+918788787887"
                   className="text-[14px] md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
                 >
-                  +91 81408 00009
+                  +91 87887 87887
+                </a><br/>
+                 <a
+                  href="tel:+919090090900"
+                  className="text-[14px] md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
+                >
+                  +91 90900 90900
                 </a>
               </div>
             </div>

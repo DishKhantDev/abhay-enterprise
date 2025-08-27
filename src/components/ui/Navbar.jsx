@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Logo from "@/assests/images/white logo 1.svg";
+import Logo from "@/assests/images/abhay-original-logo.svg";
 import ThreeLines from "@/assests/images/three-line.png";
 import ButtonMain from "@/components/ui/ButtonMain";
 import FooterLogo from "@/assests/images/footer-logo.png";

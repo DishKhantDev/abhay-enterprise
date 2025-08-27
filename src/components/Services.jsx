@@ -10,6 +10,7 @@ import Side1 from "@/assests/images/side1.png";
 import Side2 from "@/assests/images/side2.png";
 import Side3 from "@/assests/images/side3.png";
 import Side4 from "@/assests/images/side4.png";
+import Side5 from "@/assests/images/side5.png";
 
 const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,7 +24,7 @@ const Services = () => {
       name: "Write Off",
     },
     {
-      image: Side2,
+      image: Side5,
       name: "Bad Debt Recovery",
     },
     {
@@ -31,8 +32,8 @@ const Services = () => {
       name: "NPA",
     },
     {
-      image: Side1,
-      name: "REAL",
+      image: Side4,
+      name: "Buckets",
     },
   ];
 
