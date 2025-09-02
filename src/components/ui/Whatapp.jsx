@@ -23,11 +23,11 @@ export default function WhatsAppButton() {
   return (
     <button
       onClick={openWhatsApp}
-      className="fixed bottom-6 lg:bottom-10 right-6 md:right-17 2xl:right-12 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg z-50 transition"
+      className="fixed bottom-6 cursor-pointer lg:bottom-10 right-6 md:right-17 2xl:right-12 bg-green-500  text-white rounded-full p-3 shadow-lg z-50 transition"
       aria-label="Chat on WhatsApp"
     >
       {/* Official WhatsApp Logo (SVG) */}
-      <Image src={WhatappIcon2} alt="WhatsApp" className="w-7 h-7 lg:w-8 lg:h-8" />
+      <Image src={WhatappIcon2} alt="WhatsApp" className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" />
     </button>
   );
 }
