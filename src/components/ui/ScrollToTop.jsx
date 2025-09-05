@@ -30,7 +30,7 @@ export default function ScrollToTopButton() {
       {visible && (
         <button
           onClick={scrollToTop}
-          className={`fixed bottom-10 right-10 2xl:right-20 text-[25px] cursor-pointer
+          className={`fixed bottom-24 lg:bottom-30 2xl:bottom-30 right-6.5 md:right-18 lg:right-19  2xl:right-[56px] text-[25px] cursor-pointer
             bg-orange-500 px-4 py-1 text-white rounded-full shadow-lg z-50
             transition-all duration-200 ease-in-out 
             ${clicked ? "blink-pulse" : ""}`}

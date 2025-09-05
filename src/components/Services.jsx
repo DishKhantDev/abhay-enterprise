@@ -73,7 +73,7 @@ const Services = () => {
   };
 
   const TextContent = () => (
-    <div className="flex flex-col gap-[16px]  w-full">
+    <div className="flex flex-col gap-[16px] w-full">
       <div className="flex items-center gap-[10px]">
         <p className="text-[#ED323A] text-[12px] font-black uppercase lato tracking-[0.1em]">
           OUR SERVICES
@@ -124,7 +124,7 @@ const Services = () => {
   );
 
   return (
-    <div className="min-h-[781px] mt-[60px] md:mt-[100px] lg:mt-[150px]  bg-[#363435] pl-[7%] gap-[35px] flex flex-col md:flex-row w-[100%]">
+    <div className="min-h-[781px] mt-[60px] md:mt-[100px] lg:mt-[150px]  bg-[#363435] px-[7%] md:pl-[7%] gap-[35px] flex flex-col md:flex-row w-[100%]">
       {/* Desktop Layout */}
       <div className="hidden md:flex md:pt-[178px] flex-col gap-[8px] md:w-[35%] lg:w-[35%] xl:w-[35%] 2xl:w-[35%]">
         <TextContent />

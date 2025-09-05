@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import WhatsAppButton from "@/components/ui/Whatapp";
 
 export const metadata = {
   title: "Abhay Enterprise",
@@ -79,7 +80,8 @@ export default function RootLayout({ children }) {
         className={`${Lato.variable}  ${RedHatDisplay.variable} antialiased`}
       >
         {children}
-          <ScrollToTop/> {/* Add at bottom */}
+          <WhatsAppButton/>
+          <ScrollToTop/> 
       </body>
     </html>
   );
