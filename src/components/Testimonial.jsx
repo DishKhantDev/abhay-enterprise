@@ -178,9 +178,9 @@ const Testimonials = () => {
         </p>
         <Image src={Rectangle} alt="Rectangle" />
       </div>
-      <div className="flex flex-col gap-[13px]">
-        <Image src={Symbol} alt="Symbol" className="h-[20px] w-[25px] lg:w-25 lg:h-14" />
-        <h1 className="text-[24px] sm:text-[25px] md:text-[28px] ml-6 md:ml-0 l1 text-[#000000] lg:text-[30px] xl:text-[32px] font-bold leading-[32px] md:leading-[38px] lg:leading-[45px] redhat">
+      <div className="flex flex-row md:flex-col">
+        <Image src={Symbol} alt="Symbol" className="h-[15px]  w-[25px] lg:w-25 lg:h-14" />
+        <h1 className="text-[24px] sm:text-[25px] w-[70%] sm:w-full md:text-[28px] ml-6 md:ml-0 l1 text-[#000000] lg:text-[30px] xl:text-[32px] font-bold leading-[32px] md:leading-[38px] lg:leading-[45px] redhat">
           Their Words Reflect Our Consistent{" "}
           <span className="hidden md:block">Value</span>
         </h1>
@@ -326,7 +326,7 @@ const Testimonials = () => {
 function TestimonialCard({ item }) {
   return (
     <div className="w-full md:min-w-[350px] lg:min-w-[536px] xl:max-w-[536px] lg:mt-[80px] bg-[#F3F3F3] rounded-[5px] px-[30px] py-[20px] flex flex-col justify-between h-full md:h-auto lg:h-[352px]">
-      <p className="text-[14px] md:text-[15px] lg:text-[16px] leading-[35px] md:leading-[40px] redhat text-[#363435] font-[500]">
+      <p className="text-[14px] md:text-[15px] lg:text-[16px] leading-[150%] lg:leading-[40px] redhat text-[#363435] font-[500]">
         "{item.message}"
       </p>
       <div className="flex items-center gap-4 mt-8">

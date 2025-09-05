@@ -32,7 +32,7 @@ const OurClients = () => {
         <Image src={Rectangle} alt="Rectangle" />
       </div>
 
-      <h1 className="text-[24px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[32px] md:leading-[38px] lg:leading-[45px] font-bold lato text-center mt-[8px]">
+      <h1 className="text-[24px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[32px] md:leading-[38px] lg:leading-[45px] font-bold lato text-center">
         Trusted by Industry Leaders
       </h1>
 
@@ -44,14 +44,14 @@ const OurClients = () => {
               key={index}
               className="w-[calc(100vw/3rem)] md:w-[calc(120vw/3-4rem)] lg:w-[calc(100vw/3-5rem)]
               h-auto flex flex-col justify-center items-center 
-              bg-[#F3F3F3] border border-[#E0E0E0] rounded-[8px] p-4"
+              bg-[#F3F3F3] border border-[#E0E0E0] rounded-[8px] px-[40px] lg:px-[0px] py-3 lg:p-3"
             >
               <Image
                 src={item.logo}
                 alt={`ClientLogo-${index}`}
                 className="object-contain h-[60px] w-[140px] md:h-[70px] xl:h-[120px] xl:w-[250px] md:w-[150px]"
               />
-              <h6 className="red hat text-[16px] font-[500] leading-[150%] text-[#363435] mt-2">
+              <h6 className="red hat text-[16px] font-[400] lg:font-[500] leading-[150%] text-[#363435] mt-2">
                 {item.exp}
               </h6>
             </div>

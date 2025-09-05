@@ -103,7 +103,7 @@ const Services = () => {
         <Image
           src={hoverLeft ? RedArrowLeft : LeftWhiteArrow}
           alt="Left Arrow"
-          className="w-[22px] h-[22px]"
+          className=" w-[22px] h-[22px]"
         />
       </div>
 
