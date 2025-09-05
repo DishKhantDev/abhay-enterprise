@@ -14,8 +14,8 @@ const OurClients = () => {
     { logo: Hdfce, exp: "10 Years of Experience" },
     { logo: OneCard, exp: "3 Years of Experience" },
     { logo: Tata, exp: "2 Years of Experience" },
-    { logo: Chola, exp: "14 Years of Experience" },
-    { logo: Fullerton, exp: "1 Years of Experience" },
+    { logo: Chola, exp: "1 Years of Experience" },
+    { logo: Fullerton, exp: "14 Years of Experience" },
   ];
 
   // Repeat logos for infinite scroll effect
@@ -49,7 +49,7 @@ const OurClients = () => {
               <Image
                 src={item.logo}
                 alt={`ClientLogo-${index}`}
-                className="object-contain h-[90px] w-[180px] md:h-[90px] xl:h-[140px] xl:w-[280px] md:w-[180px]"
+                className="object-contain h-[60px] w-[140px] md:h-[70px] xl:h-[120px] xl:w-[250px] md:w-[150px]"
               />
               <h6 className="red hat text-[16px] font-[500] leading-[150%] text-[#363435] mt-2">
                 {item.exp}
