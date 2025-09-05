@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-
 import Icon1 from "@/assests/icons/icon1.svg";
 import Icon2 from "@/assests/icons/icon2.svg";
 import Icon3 from "@/assests/icons/icon3.svg";
@@ -53,7 +52,7 @@ const WhyChooseUs = () => {
         </div>
 
         <div className="md:flex-1/2">
-          <h2 className="text-[14px] md:text-[15px] lg:text-[16px] text-[#363435] font-medium  leading-[30px] redhat">
+          <h2 className="text-[14px] md:text-[15px] lg:text-[16px] text-[#363435] font-medium leading-[30px] redhat">
             At Abhay Enterprise, we specialize in turning unpaid dues into
             recovered revenue—ethically and efficiently. With a strong
             foundation built on trust, transparency, and a proven track record,
@@ -86,7 +85,7 @@ const WhyChooseUs = () => {
               <h3 className="text-[20px] sm:text-[20px] lg:text-[16px] xl:text-[22px] font-bold leading-[30px] text-[#363435]">
                 {card.title}
               </h3>
-              <p className="text-[14px] md:text-[15px]  lg:text-[16px] text-[#363435] font-medium  leading-[30px] mt-[6px] lg:mt-[21px]  2xl:mt-[31px] redhat 2xl:w-[72%]">
+              <p className="text-[14px] md:text-[15px]  lg:text-[16px] text-[#363435] font-medium  leading-[150%] 2xl:leading-[30px] mt-[6px] lg:mt-[21px]  2xl:mt-[31px] redhat 2xl:w-[72%]">
                 {card.description}
               </p>
             </div>

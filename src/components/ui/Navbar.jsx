@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "@/assests/images/website-logoes.png";
-import ThreeLines from "@/assests/images/three-line.png";
+import ThreeLines from "@/assests/images/ham-icon-final.svg";
 import ButtonMain from "@/components/ui/ButtonMain";
 import FooterLogo from "@/assests/images/footer-logo.png";
 const Navbar = () => {
@@ -29,7 +29,7 @@ const Navbar = () => {
           <Image
             src={Logo}
             alt="AbhayEnterprise"
-            className="w-[95px] lg:w-[109px] xl:w-[110px] h-[70px] lg:h-[90px] xl:h-[117px]"
+            className="w-[90px] lg:w-[109px] xl:w-[120px] h-[80px] lg:h-[90px] xl:h-[117px]"
           />
         </div>
 
@@ -98,9 +98,9 @@ const Navbar = () => {
             <nav className="flex flex-col lato text-[15px] font-bold divide-y uppercase divide-[#DADADA]">
               {[
                 ["Home", "#home"],
-                ["About Us", "#about"],
-                ["Our Clients", "#ourclients"],
-                ["Why choose us", "#Whychooseus"],
+                ["About Us", "#about-us"],
+                ["Our Clients", "#our-clients"],
+                ["Why choose us", "#Why-choose-us"],
                 ["Contact Us", "#contact"],
               ].map(([label, href]) => (
                 <Link
@@ -124,7 +124,7 @@ const Navbar = () => {
         }
         @keyframes slide-in {
           from {
-            transform: translateX(-100%);
+            transform: translateX(100%);
           }
           to {
             transform: translateX(0%);

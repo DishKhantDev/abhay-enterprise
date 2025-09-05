@@ -81,6 +81,7 @@ const Contact = () => {
     } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
       newErrors.phoneNumber = "Phone number must be exactly 10 digits";
     }
+    if (!formData.message) newErrors.message = "Message is required";
 
     return newErrors;
   };
@@ -171,7 +172,7 @@ const Contact = () => {
             </div>
 
             {/* Call */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 leading-[30px]">
               <div className="bg-[#ED323A] p-2 flex items-center justify-center h-[30px] w-[30px] lg:min-w-[35px] lg:min-h-[38px] 2xl:min-w-[40px] 2xl:min-h-[40px]">
                 <Image
                   src={CallIcon}
@@ -191,7 +192,7 @@ const Contact = () => {
                 </a><br/>
                  <a
                   href="tel:+919090090900"
-                  className="text-[14px] md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
+                  className="text-[14px]  md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
                 >
                   +91 90900 90900
                 </a>
@@ -199,7 +200,7 @@ const Contact = () => {
             </div>
 
             {/* Email */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 leading-[30px]">
               <div className="bg-[#ED323A] p-2 flex items-center justify-center h-[30px] w-[30px] lg:min-w-[35px] lg:min-h-[38px] 2xl:min-w-[40px] 2xl:min-h-[40px]">
                 <Image
                   src={EmailIcon}

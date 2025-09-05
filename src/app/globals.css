@@ -103,5 +103,6 @@ html {
 }
 
 .animate-scroll {
-  animation: scrollInfinite 45s linear infinite;
+  animation: scrollInfinite 60s linear infinite;
 }
+

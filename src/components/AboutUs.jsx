@@ -64,7 +64,7 @@ const AboutUs = () => {
           </ul>
         </div>
 
-        <Link href="#contact" className="hidden md:block group">
+        <Link href="#contact" className="group">
             <ButtonMain
               text="Get In Touch"
               className="text-white mt-[48px]  transition-all duration-300 ease-in-out"
