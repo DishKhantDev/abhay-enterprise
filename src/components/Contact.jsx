@@ -185,16 +185,18 @@ const Contact = () => {
                   Call us on
                 </h3>
                 <a
-                  href="tel:+918788787887"
+                  href="tel:0281 2990014
+"
                   className="text-[14px] md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
                 >
-                  +91 87887 87887
+                  0281 2990014
+
                 </a><br/>
                  <a
-                  href="tel:+919090090900"
+                  href="tel:+918140800009"
                   className="text-[14px]  md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
                 >
-                  +91 90900 90900
+                  +91 81408 00009
                 </a>
               </div>
             </div>
@@ -281,7 +283,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#ED323A] text-white hover:bg-white hover:text-[#ED323A] border border-[#ED323A] transition-all duration-300 rounded-tr-[20px] rounded-bl-[20px] px-[50px] py-[10px] flex items-center justify-center"
+                className="bg-[#ED323A] text-white cursor-pointer hover:bg-white hover:text-[#ED323A] border border-[#ED323A] transition-all duration-300 rounded-tr-[20px] rounded-bl-[20px] px-[50px] py-[10px] flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
