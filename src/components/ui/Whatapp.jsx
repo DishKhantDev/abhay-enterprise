@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function WhatsAppButton() {
   const [visible] = useState(true); // always visible, can add scroll logic if needed
 
-  const whatsappNumber = "918788787887"; // your WhatsApp number without + sign
+  const whatsappNumber = "918140800009"; // your WhatsApp number without + sign
   const message = "Hello, I would like to know more!"; // default message
 
   const openWhatsApp = () => {
