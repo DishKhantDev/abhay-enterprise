@@ -111,7 +111,7 @@ const Contact = () => {
 
       if (res.success) {
         toast.success(
-          `Thank you ${formData.firstName}, your inquiry has been submitted!`
+          `Thank you ${formData.firstName}, your inquiry has been submitted!`,
         );
         setFormData({
           firstName: "",
@@ -190,9 +190,9 @@ const Contact = () => {
                   className="text-[14px] md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
                 >
                   0281 2990014
-
-                </a><br/>
-                 <a
+                </a>
+                <br />
+                <a
                   href="tel:+918140800009"
                   className="text-[14px]  md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
                 >
@@ -219,7 +219,8 @@ const Contact = () => {
                   className="text-[14px] md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
                 >
                   abhayraj.enterprises@gmail.com
-                </a> <br/>
+                </a>{" "}
+                <br />
                 <a
                   href="mailto:Pushprajsinh@abhayenterprise.com"
                   className="text-[14px] md:text-[15px] lg:text-[16px] font-medium text-[#363435] redhat hover:text-[#ED323A] transition"
@@ -300,25 +301,15 @@ const Contact = () => {
       </div>
 
       {/* Google Map */}
-      <div className="relative mt-[80px] h-[350px] md:h-[400px] lg:h-[500px] 2xl:h-[564px]">
+      <div className="mt-[80px] h-[350px] md:h-[400px] lg:h-[500px] 2xl:h-[564px] w-full">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.8300551180055!2d70.81992357504685!3d22.285000000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cbf2f2f6f027%3A0x847d53f96733656e!2sJimmy%20Tower%204th%20Floor%2C%20442%2F443%2C%20Opp.%20Swaminarayan%20Gurukul%2C%20Makkam%20Chowk%2C%20Gondal%20Road%2C%20Rajkot%2C%20Gujarat%20360002%2C%20India!5e0!3m2!1sen!2sin!4v1722330483980"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4581.325224704454!2d70.79589607602175!3d22.27871434367613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca6d38f0a7a3%3A0x7728098d83468aa7!2sJIMMY%20TOWER%2C%20507%2F8%2C%20Gondal%20Rd%2C%20opp.%20SWAMI%20NARAYAN%20GURUKUL%2C%20Udhyog%20Nagar%20Colony%2C%20Bhakti%20Nagar%2C%20Rajkot%2C%20Gujarat%20360002!5e1!3m2!1sen!2sin!4v1785403447538!5m2!1sen!2sin"
           className="border-0 w-full h-full"
           allowFullScreen
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="Abhay Enterprise Location"
         ></iframe>
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full z-30 flex flex-col items-center text-center">
-          <svg width="33" height="47" viewBox="0 0 33 47" fill="none">
-            <path
-              d="M32.0367 16.657C32.0367 14.5691 31.6255 12.5016 30.8265 10.5727C30.0275 8.64368 28.8563 6.89097 27.38 5.41459C25.9036 3.93821 24.1509 2.76708 22.2219 1.96807C20.2929 1.16906 18.2254 0.757813 16.1375 0.757812C14.0496 0.757813 11.9821 1.16906 10.0531 1.96807C8.12415 2.76708 6.37144 3.93821 4.89506 5.41459C3.41868 6.89097 2.24755 8.64368 1.44854 10.5727C0.649526 12.5016 0.238281 14.5691 0.238281 16.657C0.238281 19.8074 1.16725 22.7374 2.74809 25.2085H2.72992L16.1375 46.1842L29.5451 25.2085H29.5292C31.1666 22.657 32.037 19.6888 32.0367 16.657ZM16.1375 23.471C14.3303 23.471 12.5972 22.7531 11.3193 21.4752C10.0414 20.1974 9.32355 18.4642 9.32355 16.657C9.32355 14.8499 10.0414 13.1167 11.3193 11.8388C12.5972 10.561 14.3303 9.84308 16.1375 9.84308C17.9447 9.84308 19.6778 10.561 20.9557 11.8388C22.2336 13.1167 22.9515 14.8499 22.9515 16.657C22.9515 18.4642 22.2336 20.1974 20.9557 21.4752C19.6778 22.7531 17.9447 23.471 16.1375 23.471Z"
-              fill="#FF0D0D"
-            />
-          </svg>
-          <h2 className="mt-1 text-[#2F3034] redhat text-[12px] font-bold bg-white">
-            ABHAY ENTERPRISE
-          </h2>
-        </div>
       </div>
 
       <ToastContainer
