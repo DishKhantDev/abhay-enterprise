@@ -252,7 +252,7 @@ const Contact = () => {
               >
                 <label className="lato font-semibold text-[16px] block mb-[5px] capitalize">
                   {field.label}
-                  <span className="text-[#ED323A]">*</span>
+                  <span className="text-[#ED323A] ">*</span>
                 </label>
                 {field.type === "textarea" ? (
                   <textarea
@@ -261,7 +261,7 @@ const Contact = () => {
                     rows={8}
                     value={formData[field.name]}
                     onChange={handleChange}
-                    className="w-full border border-[#D4D4D4] bg-white rounded-[5px] py-[20px] px-[15px] placeholder-[#575757] focus:outline-none"
+                    className="w-full border lato  border-[#D4D4D4] bg-white rounded-[5px] py-[20px] px-[15px] placeholder-[#575757] focus:outline-none"
                   />
                 ) : (
                   <input
@@ -270,11 +270,11 @@ const Contact = () => {
                     placeholder={field.placeholder}
                     value={formData[field.name]}
                     onChange={handleChange}
-                    className="w-full border border-[#D4D4D4] bg-white rounded-[5px] h-[50px] py-[20px] px-[15px] placeholder-[#575757] focus:outline-none"
+                    className="w-full border lato  border-[#D4D4D4] bg-white rounded-[5px] h-[50px] py-[20px] px-[15px] placeholder-[#575757] focus:outline-none"
                   />
                 )}
                 {errors[field.name] && (
-                  <p className="text-red-600 text-sm mt-1">
+                  <p className="text-red-600 lato  text-sm mt-1">
                     {errors[field.name]}
                   </p>
                 )}
@@ -284,11 +284,11 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#ED323A] text-white cursor-pointer hover:bg-white hover:text-[#ED323A] border border-[#ED323A] transition-all duration-300 rounded-tr-[20px] rounded-bl-[20px] px-[50px] py-[10px] flex items-center justify-center"
+                className="bg-[#ED323A] text-white lato  cursor-pointer hover:bg-white hover:text-[#ED323A] border border-[#ED323A] transition-all duration-300 rounded-tr-[20px] rounded-bl-[20px] px-[50px] py-[10px] flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
-                    <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></span>
+                    <span className="w-5 h-5 border-2 border-white lato  border-t-transparent rounded-full animate-spin mr-2"></span>
                     Submitting...
                   </>
                 ) : (
