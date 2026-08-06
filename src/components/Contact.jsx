@@ -303,7 +303,7 @@ const Contact = () => {
       {/* Google Map */}
       <div className="mt-[80px] h-[350px] md:h-[400px] lg:h-[500px] 2xl:h-[564px] w-full">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4581.325224704454!2d70.79589607602175!3d22.27871434367613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca6d38f0a7a3%3A0x7728098d83468aa7!2sJIMMY%20TOWER%2C%20507%2F8%2C%20Gondal%20Rd%2C%20opp.%20SWAMI%20NARAYAN%20GURUKUL%2C%20Udhyog%20Nagar%20Colony%2C%20Bhakti%20Nagar%2C%20Rajkot%2C%20Gujarat%20360002!5e1!3m2!1sen!2sin!4v1785403447538!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.024915790609!2d70.79867!3d22.277046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca6d75398e09%3A0x7cbee05056ae8ec7!2sJimmy%20Tower!5e0!3m2!1sen!2sin!4v1786018995325!5m2!1sen!2sin"
           className="border-0 w-full h-full"
           allowFullScreen
           loading="lazy"
